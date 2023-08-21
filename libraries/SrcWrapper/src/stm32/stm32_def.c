@@ -1,3 +1,4 @@
+
 #include "stm32_def.h"
 #include "core_debug.h"
 
@@ -10,6 +11,7 @@ extern "C" {
   * @param  None
   * @retval None
   */
+#if !defined(NDEBUG)
 WEAK void _Error_Handler(const char *msg, int val)
 {
   /* User can add his own implementation to report the HAL error return state */
@@ -17,6 +19,7 @@ WEAK void _Error_Handler(const char *msg, int val)
   while (1) {
   }
 }
+#endif
 
 #ifdef __cplusplus
 }
