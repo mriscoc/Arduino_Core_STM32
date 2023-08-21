@@ -1,6 +1,15 @@
 {
-    "name": "framework-arduinoststm32",
-    "description": "Arduino Wiring-based Framework (STM32 Core)",
-    "version": "0.0.0",
-    "url": "https://github.com/stm32duino/Arduino_Core_STM32"
+  "name": "framework-arduinoststm32",
+  "version": "4.10900.200819",
+  "description": "Arduino Wiring-based Framework for ST STM32 microcontrollers (MRiscoC fixes)",
+  "keywords": [
+    "framework",
+    "arduino",
+    "stmicroelectronics",
+    "stm32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mriscoc/Arduino_Core_STM32"
+  }
 }

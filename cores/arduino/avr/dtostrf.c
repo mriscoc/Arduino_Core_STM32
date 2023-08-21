@@ -58,7 +58,8 @@ char *dtostrf(double val, signed char width, unsigned char prec, char *sout)
   remainder *= decade;
   dec_part = (int)remainder;
 
-  if (negative) {
+  // Avoid -0.00...0
+  if (negative && (int_part + dec_part != 0)) {
     sprintf(sout, "-%ld.%0*ld", int_part, prec, dec_part);
   } else {
     sprintf(sout, "%ld.%0*ld", int_part, prec, dec_part);
