@@ -162,6 +162,26 @@ uint32_t analogRead(uint32_t ulPin)
   PinName p = analogInputToPinName(ulPin);
   if (p != NC) {
     value = adc_read_value(p, _internalReadResolution);
+
+// ---------- START Tronxy code ----------
+// https://github.com/tronxy3d/F4xx-SIM240x320
+    #if (MCU_TYPE == 4) && !defined(GD32)
+      #define GD32
+    #endif
+    #if defined(GD32)
+      #if ADC_RESOLUTION == 12
+        // Not changes
+      #elif ADC_RESOLUTION == 10
+        value >>= 2; 
+        value &= 0x03FF;
+      #elif ADC_RESOLUTION == 8
+        value >>= 4; 
+        value &= 0x00FF;
+      #else
+        #error "ADC resolution not supported"
+      #endif
+    #endif
+// ---------- END Tronxy code ----------
     value = mapResolution(value, _internalReadResolution, _readResolution);
   }
 #else
