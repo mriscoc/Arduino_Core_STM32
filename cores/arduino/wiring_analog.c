@@ -165,8 +165,8 @@ uint32_t analogRead(uint32_t ulPin)
 
 // ---------- START Tronxy code ----------
 // https://github.com/tronxy3d/F4xx-SIM240x320
-    #if (MCU_TYPE == 4) && !defined(GD32)
-      #define GD32
+    #if (MCU_TYPE == 4) && !defined(GD32F4)
+      #define GD32F4
     #endif
     #if defined(GD32)
       #if ADC_RESOLUTION == 12
